@@ -49,9 +49,13 @@ module Demux
     # @return [Integer] (10) time in seconds before transmitter will timeout
     attr_accessor :signal_timeout
 
+    # @return [string] (Demux) name of the user agent
+    attr_accessor :user_agent
+
     def initialize(args = {})
       @default_demuxer = args.fetch(:default_demuxer) { Demux::Demuxer }
       @signal_timeout = args.fetch(:signal_timeout, 10)
+      @user_agent = args.fetch(:user_agent, "Demux")
     end
   end
 end
